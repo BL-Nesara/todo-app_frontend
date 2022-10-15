@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const base_URL = "http://localhost:4500";
+const base_URL = "https://todo-backend-app.onrender.com";
 
 const getAllTodo = (setTodo) => {
   axios
@@ -103,4 +103,5 @@ const searchTodo = (text, setText, setTodo) => {
       toast.error(err.message ?? err);
     });
 };
+
 export { getAllTodo, addTodo, updateTodo, deleteTodo, searchTodo };

@@ -29,7 +29,6 @@ function App() {
     deleteTodo(id, setTodo);
   };
 
-  // const searchHandler = () => {};
   return (
     <div className="app">
       <div className="container">
@@ -60,6 +59,7 @@ function App() {
             Search
           </button>
         </div>
+
         <div className="list">
           {todo.map((item) => {
             return (
