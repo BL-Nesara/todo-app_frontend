@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Todo from "./components/Todo";
-import { addTodo, deleteTodo, getAllTodo, updateTodo } from "./utils/HandleApi";
+import {
+  addTodo,
+  deleteTodo,
+  getAllTodo,
+  searchTodo,
+  updateTodo,
+} from "./utils/HandleApi";
 
 function App() {
   const [todo, setTodo] = useState([]);
@@ -13,15 +19,17 @@ function App() {
     getAllTodo(setTodo);
   }, []);
 
-  const editHandler = (_id, text) => {
-    console.log(_id, text);
+  const editHandler = (id, text) => {
+    console.log(id, text);
     setIsUpdate(true);
     setText(text);
-    setTodoId(_id);
+    setTodoId(id);
   };
-  const deleteHandler = (_id) => {
-    deleteTodo(_id, setTodo);
+  const deleteHandler = (id) => {
+    deleteTodo(id, setTodo);
   };
+
+  // const searchHandler = () => {};
   return (
     <div className="app">
       <div className="container">
@@ -42,6 +50,14 @@ function App() {
             }
           >
             {isUpdate ? "Update" : "Add"}
+          </button>
+          <button
+            className="search"
+            onClick={() => {
+              searchTodo(text, setText, setTodo);
+            }}
+          >
+            Search
           </button>
         </div>
         <div className="list">

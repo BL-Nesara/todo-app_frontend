@@ -85,4 +85,22 @@ const deleteTodo = (_id, setTodo) => {
       toast.error(err.message ?? err);
     });
 };
-export { getAllTodo, addTodo, updateTodo, deleteTodo };
+
+const searchTodo = (text, setText, setTodo) => {
+  axios
+    .post(`${base_URL}/search`, { searchText: text })
+    .then((res) => {
+      if (res.data.statusCode === 200 || res.data.statusCode === 201) {
+        setTodo(res.data.data);
+        toast.success(res.data.message);
+        setText("");
+      }
+      if (res.data.statusCode === 400) {
+        toast.error(res.data.message);
+      }
+    })
+    .catch((err) => {
+      toast.error(err.message ?? err);
+    });
+};
+export { getAllTodo, addTodo, updateTodo, deleteTodo, searchTodo };
