@@ -40,24 +40,28 @@ function App() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          <button
-            className="add"
-            onClick={
-              isUpdate
-                ? () => updateTodo(todoId, text, setText, setTodo, setIsUpdate)
-                : () => addTodo(text, setText, setTodo)
-            }
-          >
-            {isUpdate ? "Update" : "Add"}
-          </button>
-          <button
-            className="search"
-            onClick={() => {
-              searchTodo(text, setText, setTodo);
-            }}
-          >
-            Search
-          </button>
+          <div className="buttons">
+            {" "}
+            <button
+              className="add"
+              onClick={
+                isUpdate
+                  ? () =>
+                      updateTodo(todoId, text, setText, setTodo, setIsUpdate)
+                  : () => addTodo(text, setText, setTodo)
+              }
+            >
+              {isUpdate ? "Update" : "Add"}
+            </button>
+            <button
+              className="search"
+              onClick={() => {
+                searchTodo(text, setText, setTodo);
+              }}
+            >
+              Search
+            </button>
+          </div>
         </div>
 
         <div className="list">

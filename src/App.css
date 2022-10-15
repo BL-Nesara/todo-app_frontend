@@ -64,3 +64,20 @@ input {
   display: flex;
   gap: 1rem;
 }
+
+@media only screen and (max-device-width: 600px) {
+  .top {
+    display: flex;
+    flex-direction: column;
+  }
+  .buttons {
+    display: flex;
+    gap: 90px;
+  }
+  input {
+    width: 250px;
+  }
+  .todo {
+    width: 100%;
+  }
+}
